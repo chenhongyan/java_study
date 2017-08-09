@@ -2,7 +2,7 @@
 
 public class Employee {
     int age;
-    String name;
+    public final String name;
     double salary;
     String designation;
 

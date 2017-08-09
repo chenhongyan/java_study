@@ -15,5 +15,14 @@ public class EmployeeTest {
         jiaoshan.setDesignation("实习生");
         jiaoshan.setSalary(8000);
         jiaoshan.printEmplyee();
+
+        //说明final变量为编译期常量
+        String a = "hello2";
+        final String b = "hello";
+        String d = "hello";
+        String c = b + 2;
+        String e = d + 2;
+        System.out.println((a == c));
+        System.out.println((a == e));
     }
 }
