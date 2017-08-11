@@ -1,9 +1,12 @@
+
 import java.text.SimpleDateFormat;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.Date;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
 
-public class opreator {
+public class java_study {
     public static void main(String args[]){
         //java操作符练习
         operator();
@@ -13,8 +16,10 @@ public class opreator {
         interger();
         //java的数组操作练习
         myarray();
-
-        printDate();
+        //java的日期时间练习
+        //printDate();
+        //java的正则表达式练习
+        regex();
 
 
 
@@ -153,5 +158,20 @@ public class opreator {
         }
         printArray(mylist);
         System.out.println("The max of list is " + max);
+    }
+    //java的正则表达式
+    public static void regex(){
+        String line = "The cat is your cat";
+        String pattern = "(\\bcat\\b)";
+        Pattern my_pattern = Pattern.compile(pattern);
+        Matcher my_matcher = my_pattern.matcher(line);
+        int count=0;
+        while (my_matcher.find()){
+            count++;
+            System.out.println("count: "+count);
+            System.out.println("Find the value:" + my_matcher.start());
+            System.out.println("Find the value:" + my_matcher.end());
+        }
+
     }
 }
