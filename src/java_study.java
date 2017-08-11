@@ -1,10 +1,13 @@
 
+import java.io.FileOutputStream;
+import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.Date;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
+import java.io.*;
 
 public class java_study {
     public static void main(String args[]){
@@ -17,12 +20,20 @@ public class java_study {
         //java的数组操作练习
         myarray();
         //java的日期时间练习
-        //printDate();
+        printDate();
         //java的正则表达式练习
         regex();
-
-
-
+        //java方法重载
+        int result = Minfunction(10,20);
+        double result_d = Minfunction(12.2,8.6);
+        System.out.println("The min value is "+result);
+        System.out.println("The min value is "+result_d);
+        //命令行参数的使用
+        System.out.println(args[0]);
+        //java允许传递可变长的同类型参数
+        PrintMax(new double[]{1.2,3.5,3.6});
+        //java文件读写
+        FileWrite();
     }
     //使用foreach打印数组
     public static void printArray(double[]array){
@@ -162,6 +173,7 @@ public class java_study {
     //java的正则表达式
     public static void regex(){
         String line = "The cat is your cat";
+        String matches = "The cat is your cat cat";
         String pattern = "(\\bcat\\b)";
         Pattern my_pattern = Pattern.compile(pattern);
         Matcher my_matcher = my_pattern.matcher(line);
@@ -172,6 +184,64 @@ public class java_study {
             System.out.println("Find the value:" + my_matcher.start());
             System.out.println("Find the value:" + my_matcher.end());
         }
+        Pattern another_pattern = Pattern.compile(line);
+        Matcher another_matcher = another_pattern.matcher(matches);
+        System.out.println(another_matcher.lookingAt()+"\n"+another_matcher.matches());
 
     }
+    //java的方法重载
+    public static int Minfunction(int a, int b){
+        int min = 0;
+        if(a > b){
+            min = b;
+        }
+        else
+            min = a;
+        return min;
+    }
+    public static double Minfunction(double a, double b){
+        double min = 0;
+        if(a > b){
+            min = b;
+        }
+        else
+            min = a;
+        return min;
+    }
+    //java传递可变长同类型参数
+    public static void PrintMax(double...numbers){
+        if(numbers.length==0){
+            System.out.println("There is no arguments");
+        }
+        double max_value = numbers[0];
+        for(double item : numbers){
+            if(item > max_value){
+                max_value = item;
+            }
+        }
+        System.out.println("The max value is " + max_value);
+    }
+    //java文件读写
+    public static void FileWrite() {
+        try {
+            byte bWrite [] = {10,20,30,40,50};
+            OutputStream os = new FileOutputStream("test.txt");
+            for(int x=0; x < bWrite.length ; x++){
+                os.write( bWrite[x] ); // writes the bytes
+            }
+            os.close();
+
+            InputStream is = new FileInputStream("test.txt");
+            int size = is.available();
+
+            for(int i=0; i< size; i++){
+                System.out.print((int)is.read() + "  ");
+            }
+            is.close();
+        }catch(IOException e){
+            System.out.print("Exception");
+        }
+
+    }
+
 }
