@@ -17,6 +17,8 @@ class Animals{
 }
 class Dog extends Animals{
     public void run(){
+        //调用父类重写的方法用super关键字
+        super.run();
         System.out.println("Dog can run and walk ");
     }
 }
