@@ -9,6 +9,18 @@ import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 import java.io.*;
 
+//定义两个类，子类重写父类的方法
+class Animals{
+    public void run(){
+        System.out.println("Animals can move");
+    }
+}
+class Dog extends Animals{
+    public void run(){
+        System.out.println("Dog can run and walk ");
+    }
+}
+//定义java学习代码
 public class java_study {
     public static void main(String args[]){
         //java操作符练习
@@ -34,7 +46,16 @@ public class java_study {
         PrintMax(new double[]{1.2,3.5,3.6});
         //java文件读写
         FileWrite();
+        //java异常处理
+        exception();
+        //类的方法重写
+        Animals A = new Animals();
+        Dog D = new Dog();
+        A.run();
+        D.run();
+
     }
+
     //使用foreach打印数组
     public static void printArray(double[]array){
         for(double item_array : array){
@@ -237,9 +258,20 @@ public class java_study {
             for(int i=0; i< size; i++){
                 System.out.print((int)is.read() + "  ");
             }
+            System.out.print("\n");
             is.close();
         }catch(IOException e){
             System.out.print("Exception");
+        }
+
+    }
+    //java异常处理
+    public static void exception(){
+        int array[] = new int[3];
+        try{
+            System.out.print("Access the third element"+array[3]);
+        }catch (ArrayIndexOutOfBoundsException e){
+            System.out.println(" there is an error: out of bounds");
         }
 
     }
