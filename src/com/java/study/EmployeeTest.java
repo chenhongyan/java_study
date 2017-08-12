@@ -1,4 +1,6 @@
-import java.io.*;
+package com.java.study;
+
+import com.java.study.Employee;
 
 public class EmployeeTest {
     public static void main(String args[]){

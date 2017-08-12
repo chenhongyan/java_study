@@ -1,4 +1,4 @@
-//该类是员工的信息类
+package com.java.study;//该类是员工的信息类
 
 public class Employee {
     int age;

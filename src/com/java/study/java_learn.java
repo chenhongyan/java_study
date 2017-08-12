@@ -1,4 +1,4 @@
-
+package com.java.study;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
 import java.text.SimpleDateFormat;
@@ -23,7 +23,7 @@ class Dog extends Animals{
     }
 }
 //定义java学习代码
-public class java_study {
+public class java_learn {
     public static void main(String args[]){
         //java操作符练习
         operator();
@@ -55,6 +55,10 @@ public class java_study {
         Dog D = new Dog();
         A.run();
         D.run();
+        int list[] = {12,2,3};
+        for(int item : list){
+            System.out.print(item+",");
+        }
 
     }
 
