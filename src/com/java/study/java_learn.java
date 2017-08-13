@@ -25,43 +25,69 @@ class Dog extends Animals{
 //定义java学习代码
 public class java_learn {
     public static void main(String args[]){
-        //java操作符练习
-        operator();
-        //java循环操作练习
-        loop();
-        //java的interger和character类
-        interger();
-        //java的数组操作练习
-        myarray();
-        //java的日期时间练习
-        printDate();
-        //java的正则表达式练习
-        regex();
-        //java方法重载
-        int result = Minfunction(10,20);
-        double result_d = Minfunction(12.2,8.6);
-        System.out.println("The min value is "+result);
-        System.out.println("The min value is "+result_d);
-        //命令行参数的使用
-        System.out.println(args[0]);
-        //java允许传递可变长的同类型参数
-        PrintMax(new double[]{1.2,3.5,3.6});
-        //java文件读写
-        FileWrite();
-        //java异常处理
-        exception();
-        //类的方法重写
-        Animals A = new Animals();
-        Dog D = new Dog();
-        A.run();
-        D.run();
-        int list[] = {12,2,3};
-        for(int item : list){
-            System.out.print(item+",");
-        }
+        //java的字符串练习
+        string_equal();
+        //java数组拷贝
+        copy_array();
+//        //java操作符练习
+//        operator();
+//        //java循环操作练习
+//        loop();
+//        //java的interger和character类
+//        interger();
+//        //java的数组操作练习
+//        myarray();
+//        //java的日期时间练习
+//        printDate();
+//        //java的正则表达式练习
+//        regex();
+//        //java方法重载
+//        int result = Minfunction(10,20);
+//        double result_d = Minfunction(12.2,8.6);
+//        System.out.println("The min value is "+result);
+//        System.out.println("The min value is "+result_d);
+//        //命令行参数的使用
+//        System.out.println(args[0]);
+//        //java允许传递可变长的同类型参数
+//        PrintMax(new double[]{1.2,3.5,3.6});
+//        //java文件读写
+//        FileWrite();
+//        //java异常处理
+//        exception();
+//        //类的方法重写
+//        Animals A = new Animals();
+//        Dog D = new Dog();
+//        A.run();
+//        D.run();
+//        int list[] = {12,2,3};
+//        for(int item : list){
+//            System.out.print(item+",");
+//        }
 
     }
-
+    //java字符串内容相等判断
+    public static void string_equal(){
+        String first = "gao";
+        String second = "gao";
+        String third = new String(first);
+        String fourth = "ga" + "o";
+        System.out.println(first == second);
+        System.out.println(first.equals(second));
+        System.out.println(third == first);
+        System.out.println(third.equals(first));
+        System.out.println(fourth == first);
+        System.out.println(fourth.equals(first));
+    }
+    //java数组拷贝
+    public static void copy_array(){
+        int[] copy = {0, 1, 2, 3, 4, 5, 6};
+        int[] copy_to = new int[3];
+        System.arraycopy(copy,0, copy_to, 0, 3);
+        for (int item: copy_to){
+            System.out.print(item + ",");
+        }
+        System.out.print("\n");
+    }
     //使用foreach打印数组
     public static void printArray(double[]array){
         for(double item_array : array){
@@ -136,7 +162,7 @@ public class java_learn {
             //String str = (String)itr.next();
             System.out.println(itr.next());
         }
-        //测试switch语句中的default作用
+        //测试switch语句中的default作用，每个case后要加break，不然会顺序输出每个结果
         char grade = 'd';
         switch (grade){
             case 'c':
