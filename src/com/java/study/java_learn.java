@@ -79,6 +79,12 @@ public class java_learn {
         System.out.println(third.equals(first));
         System.out.println(fourth == first);
         System.out.println(fourth.equals(first));
+        //stringbuilder类方便用于小段字符串的拼接
+        StringBuilder builder = new StringBuilder();
+        builder.append("gao");
+        builder.append("chen");
+        System.out.println(builder);
+
     }
     //java数组拷贝
     public static void copy_array(){
