@@ -1,7 +1,6 @@
 package com.java.study;
 
-import com.sun.istack.internal.localization.NullLocalizable;
-import sun.font.TrueTypeFont;
+
 
 import java.util.Scanner;
 
