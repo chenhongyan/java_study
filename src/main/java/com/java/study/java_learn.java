@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.Date;
+import java.util.Scanner;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 import java.io.*;
@@ -24,6 +25,7 @@ class Dog extends Animals{
 }
 //定义java学习代码
 public class java_learn {
+    static int count;
     public static void main(String args[]){
         //java的字符串练习
         string_equal();
@@ -47,7 +49,7 @@ public class java_learn {
         System.out.println("The min value is "+result);
         System.out.println("The min value is "+result_d);
         //命令行参数的使用
-        System.out.println(args[0]);
+//        System.out.println(args[0]);
         //java允许传递可变长的同类型参数
         PrintMax(new double[]{1.2,3.5,3.6});
         //java文件读写
@@ -63,6 +65,16 @@ public class java_learn {
         for(int item : list){
             System.out.print(item+",");
         }
+        System.out.print("\n");
+        //读取输入内容
+        input();
+        java_learn ja = new java_learn();
+        ja.count += 2;
+        System.out.println("static count: " + ja.count);
+        java_learn jav = new java_learn();
+        jav.count += 2;
+        System.out.println("Static count: " + ja.count);
+
 
     }
     //java字符串内容相等判断
@@ -315,5 +327,15 @@ public class java_learn {
         }
 
     }
+    //java系统标准输入
+    public static void input(){
+        Scanner in = new Scanner(System.in);
+        System.out.println("hello, how old are you?");
+        int age = in.nextInt();
+        System.out.println("age" + age);
+
+    }
+    //java的static变量
+
 
 }
