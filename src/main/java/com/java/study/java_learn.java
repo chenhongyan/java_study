@@ -1,4 +1,4 @@
-package com.java.study;
+package com.java.study;//包的使用类似c++当中的namespace
 import java.io.FileOutputStream;
 import java.io.OutputStream;
 import java.text.SimpleDateFormat;
@@ -10,22 +10,37 @@ import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 import java.io.*;
 
-//定义两个类，子类重写父类的方法
-class Animals{
-    public void run(){
-        System.out.println("Animals can move");
-    }
+
+/*java接口练习,接口中的方法都是抽象的，而且变量都是final修饰的
+*java不支持多继承，但是可以多个接口
+*/
+interface animal{
+    int age = 0;
+    void setAge(int age);
 }
-class Dog extends Animals{
-    public void run(){
-        //调用父类重写的方法用super关键字
-        super.run();
-        System.out.println("Dog can run and walk ");
+class dog2 implements animal{
+    int age = 1;
+    public void setAge(int age) {
+        this.age = age;
     }
 }
 //定义java学习代码
 public class java_learn {
     static int count;
+    //定义两个类，子类重写父类的方法
+    class Animals{
+        public void run(){
+            System.out.println("Animals can move");
+        }
+    }
+    class Dog extends Animals{
+        @Override//最好写上防止重写写错函数名字
+        public void run(){
+            //调用父类重写的方法用super关键字
+            super.run();
+            System.out.println("Dog can run and walk ");
+        }
+    }
     public static void main(String args[]){
         //java的字符串练习
         string_equal();
@@ -56,9 +71,10 @@ public class java_learn {
         FileWrite();
         //java异常处理
         exception();
-        //类的方法重写
-        Animals A = new Animals();
-        Dog D = new Dog();
+        //类的方法重写，内部类的调用需要通过外部类
+        java_learn jl = new java_learn();
+        Animals A = jl.new Animals();
+        Dog D = jl.new Dog();
         A.run();
         D.run();
         int list[] = {12,2,3};
