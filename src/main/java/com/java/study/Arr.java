@@ -26,6 +26,42 @@ public class Arr {
         System.out.println(Arrays.toString(copy));
         return copy;
     }
+    /*
+    * 二维数组的循环遍历
+     */
+    public static void print_arry(){
+        int[][] arr = {{1,2,3},{2,3,4}};
+        for(int[] row : arr){
+            for(int value : row){
+                System.out.printf("The value is %d%n", value);
+            }
+        }
+    }
+    /*
+    * java特有的不等长数组
+     */
+    public static void LotteryArray(){
+        final int NMAX = 10;
+        int[][] arr = new int[NMAX+1][];
+        for(int i = 0; i <= NMAX; i++)
+            arr[i] = new int[i + 1];
+        for(int n = 0; n < arr.length; n++){
+            for(int m = 0; m < arr[n].length; m++){
+                int odds = 1;
+                for(int i = 1; i <= m; i++){
+                    odds = odds * (n - i + 1) / i;
+                }
+                arr[n][m] = odds;
+            }
+        }
+        for(int[] row : arr){
+            for(int value : row){
+                System.out.printf("%4d",value);
+            }
+            System.out.println();
+        }
+
+    }
     public static void main(String args[]){
         int[] arr = new int[11];
         int[] arr_copy = new int[11];
@@ -35,6 +71,8 @@ public class Arr {
         Arr_print(arr);
         Arr_copy(arr, arr_copy);
         copy = Arr_copy(arr);
+        print_arry();
+        LotteryArray();
 
 
     }
